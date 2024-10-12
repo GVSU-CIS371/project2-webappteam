@@ -24,7 +24,7 @@
       </nav>
     </header>
     <main id="main-container">
-      <script type="module">
+      <script lang="ts" type="module" >
         import { products } from './src/data.ts';
         import { renderProducts, getByCategory, getByRating } from './src/data-controller.ts';
         renderProducts(products);
@@ -37,7 +37,27 @@
         // - "Best Seller" should display all products with a rating greater than 4.5.
 
         
-        // your code
+/*          // Gives me a weird error "types can only be used in a .ts file" so cant do MouseEvent check
+         function clickHandler(ev:MouseEvent):void {
+          getbyCategory("Electronics");
+        } */
+
+
+        //tried both click and mousedown both still just run at load time and do not run afterwards when you click on them 
+        //here is where I think the problem is because the functions work 
+        //If they would run when they are actully clicked I think it would be fine
+        const electronicsLink = document.getElementById('electronics');
+        electronicsLink.addEventListener("click", getByCategory("Electronics"));
+
+        const clothingLink = document.getElementById('clothing');
+        clothingLink.addEventListener("click", getByCategory("Clothing"));
+
+        const groceriesLink = document.getElementById('groceries');
+        groceriesLink.addEventListener("click", getByCategory("Groceries"));
+
+        const bestSellerLink = document.getElementById('bestSeller');
+        bestSellerLink.addEventListener("click", getByRating(4.5));
+
       </script>
     </main>
     <footer>

@@ -10,15 +10,29 @@ function generateProductHTML(product: Product): string {
 }
 
 function renderProducts(prods: Product[]): void {
-    // your code
+//This section clear the results from the previous click when uncommented it only displays the final one, best sellers
+//when commented it displays everything all at once
+
+  /*   let everything = document.querySelectorAll("main > div")       
+  for(let a of everything){
+    a.classList.add("hidden");
+  } */
+ 
+    for(let a of prods){
+      const mainTop = document.getElementById("main-container");
+      const productDisplay = generateProductHTML(a);
+      const showItem = document.createElement("div");
+      showItem.innerHTML = (productDisplay);
+      mainTop?.appendChild(showItem);
+    }
 }
 
 function getByCategory(category: string): void {
-    // your code
+    renderProducts(products.filter((a:Product) => a.category == category))
 }
 
 function getByRating(minRating: number): void {
-    // your code
+  renderProducts(products.filter((a:Product) => a.rating >= minRating))
 }
 
 export { renderProducts, getByCategory, getByRating };
