@@ -13,11 +13,11 @@ function renderProducts(prods: Product[]): void {
 //This section clear the results from the previous click when uncommented it only displays the final one, best sellers
 //when commented it displays everything all at once
 
-  /*   let everything = document.querySelectorAll("main > div")       
+  /*let everything = document.querySelectorAll("main > div")       
   for(let a of everything){
     a.classList.add("hidden");
   } */
- 
+
     for(let a of prods){
       const mainTop = document.getElementById("main-container");
       const productDisplay = generateProductHTML(a);
@@ -25,6 +25,7 @@ function renderProducts(prods: Product[]): void {
       showItem.innerHTML = (productDisplay);
       mainTop?.appendChild(showItem);
     }
+     
 }
 
 function getByCategory(category: string): void {

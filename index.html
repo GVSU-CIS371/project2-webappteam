@@ -46,16 +46,16 @@
         //tried both click and mousedown both still just run at load time and do not run afterwards when you click on them 
         //here is where I think the problem is because the functions work 
         //If they would run when they are actully clicked I think it would be fine
-        const electronicsLink = document.getElementById('electronics');
+        const electronicsLink = document.getElementById("electronics");
         electronicsLink.addEventListener("click", getByCategory("Electronics"));
 
-        const clothingLink = document.getElementById('clothing');
+        const clothingLink = document.getElementById("clothing");
         clothingLink.addEventListener("click", getByCategory("Clothing"));
 
-        const groceriesLink = document.getElementById('groceries');
+        const groceriesLink = document.getElementById("groceries");
         groceriesLink.addEventListener("click", getByCategory("Groceries"));
 
-        const bestSellerLink = document.getElementById('bestSeller');
+        const bestSellerLink = document.getElementById("bestSeller");
         bestSellerLink.addEventListener("click", getByRating(4.5));
 
       </script>
