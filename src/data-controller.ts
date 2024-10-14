@@ -10,21 +10,21 @@ function generateProductHTML(product: Product): string {
 }
 
 function renderProducts(prods: Product[]): void {
-//This section clear the results from the previous click when uncommented it only displays the final one, best sellers
-//when commented it displays everything all at once
+  const mainTop = document.getElementById("main-container");
+  
+  //for some reason we have to make sure mainTop is created first, even though it is the line directly above
+  if (mainTop){
+    //clear the existing innerHTML links
+    mainTop.innerHTML = '';
 
-  /*   let everything = document.querySelectorAll("main > div")       
-  for(let a of everything){
-    a.classList.add("hidden");
-  } */
- 
+    //add the product information of the passed product array
     for(let a of prods){
-      const mainTop = document.getElementById("main-container");
       const productDisplay = generateProductHTML(a);
       const showItem = document.createElement("div");
       showItem.innerHTML = (productDisplay);
-      mainTop?.appendChild(showItem);
+      mainTop?.appendChild(showItem);//no longer a problem, since we clear the innerHTML first
     }
+  }
 }
 
 function getByCategory(category: string): void {
